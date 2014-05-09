@@ -1,1 +1,7 @@
--14.8535,35.1379,42.4512,60.9518
+Lower left corner
+lat 35.1379 N
+lon -14.8535 E
+
+Upper right corner
+lat 60.9518 N
+lon 42.4512 E
