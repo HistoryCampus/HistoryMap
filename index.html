@@ -4,10 +4,11 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap 101 Template</title>
+    <title></title>
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -16,51 +17,44 @@
     <![endif]-->
   </head>
   <body>
-    <h1>History Map</h1>
+    <form id="reservation">
+      <label for="minbeds">Year</label>
+      <select name="minbeds" id="minbeds">
+        <option value="1914">1914</option>
+        <option value="1915">1915</option>
+        <option value="1916">1916</option>
+        <option value="1917">1917</option>
+        <option value="1918">1918</option>
+        <option value="1919">after 1918</option>
+      </select>
+    </form>
 
-  <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
-  <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
-  <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
-  <script>
-  $(function() {
-    var select = $( "#minbeds" );
-    var slider = $( "<div id='slider'></div>" ).insertAfter( select ).slider({
-      min: 1,
-      max: 6,
-      range: "min",
-      value: select[ 0 ].selectedIndex + 1,
-      slide: function( event, ui ) {
-        select[ 0 ].selectedIndex = ui.value - 1;
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <script>
+    $(function() {
+      var select = $( "#minbeds" );
+      var slider = $( "<div id='slider'></div>" ).insertAfter( select ).slider({
+        min: 1,
+        max: 6,
+        range: "min",
+        value: select[ 0 ].selectedIndex + 1,
+        slide: function( event, ui ) {
+          select[ 0 ].selectedIndex = ui.value - 1;
+          updateYear();
+        }
+      });
+      $( "#minbeds" ).change(function() {
+        slider.slider( "value", this.selectedIndex + 1 );
+
         updateYear();
+      });
+
+      function updateYear() {
+              console.log($( "#minbeds" ).val());
       }
     });
-    $( "#minbeds" ).change(function() {
-      slider.slider( "value", this.selectedIndex + 1 );
-
-      updateYear();
-    });
-
-    function updateYear() {
-            console.log($( "#minbeds" ).val());
-    }
-  });
-  </script>
-</head>
-<body>
-
- <div style="text-align: right">
-<form id="reservation">
-  <label for="minbeds">Year</label>
-  <select name="minbeds" id="minbeds">
-    <option value="1914">1914</option>
-    <option value="1915">1915</option>
-    <option value="1916">1916</option>
-    <option value="1917">1917</option>
-    <option value="1918">1918</option>
-    <option value="1919">after 1918</option>
-  </select>
-</form>
-</div>
-    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-    </body>
+    </script>
+  </body>
 </html>
