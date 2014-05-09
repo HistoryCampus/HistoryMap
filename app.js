@@ -20,7 +20,6 @@ $(function() {
   this.markers = [];
 
   this.update = function() {
-    self.map.height($(document).height() * 0.9);
     self.mapHeight = self.map.height();
     self.mapWidth = self.map.width();
 
