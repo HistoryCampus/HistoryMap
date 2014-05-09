@@ -1,10 +1,12 @@
-Lower left corner
-lat 35.1379 N
+upper left corner
+lat 60.9518 N
 lon -14.8535 E
 
-Upper right corner
-lat 60.9518 N
+lower right corner
+lat 35.1379 N
 lon 42.4512 E
 
 TileMill format
 -14.8535,35.1379,42.4512,60.9518
+
+
