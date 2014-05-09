@@ -2,16 +2,31 @@ html,body {
     height: 100%;
 }
 
-form { text-align:right; }
+form {
+    text-align:right;
+    padding: 0 2em;
+}
 
-#map {
-    background: url("map.svg") center no-repeat;
-    background-size: contain;
-    height: 90%;
+svg#map {
+    display: inline-block;
+    width: 70%;
+    height: 50%;
+    margin-left: 15%;
 }
 
 .container-full {
   margin: 0 auto;
   width: 100%;
   height: 100%;
+}
+
+header {
+    position: fixed;
+    left: 1%;
+    top: 1%;
+    width: 10%;
+    height: 3%;
+    color: black;
+    text-align: center;
+    font-size: 3rem;
 }

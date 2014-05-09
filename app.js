@@ -1,4 +1,14 @@
 $(function() {
+
+  var mapW = $('#map').width(),
+      mapH = $('#map').height();
+
+});
+
+
+/* jquery slider */
+
+$(function() {
   var select = $( "#minbeds" );
   var slider = $( "<div id='slider'></div>" ).insertAfter( select ).slider({
     min: 1,
@@ -17,7 +27,7 @@ $(function() {
   });
 
   function updateYear() {
-          console.log($( "#minbeds" ).val());
+    console.log($( "#minbeds" ).val());
   }
 });
 
