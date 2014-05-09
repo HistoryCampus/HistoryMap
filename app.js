@@ -1,7 +1,18 @@
 $(function() {
 
-  var mapW = $('#map').width(),
-      mapH = $('#map').height();
+  self = this;
+  this.map = $('#map');
+  this.mapHeight = this.map.height();
+  this.mapWidth = this.map.width();
+
+  this.update = function() {
+    self.map.height($(document).height() * 0.9);
+    self.mapHeight = self.map.height();
+    self.mapWidth = self.map.width();
+  };
+
+  $(window).resize(this.update);
+  this.update();
 
 });
 
