@@ -2,8 +2,14 @@ $(function() {
 
   self = this;
   this.map = $('#map');
+  this.mapBBox = this.map.offset();
   this.mapHeight = this.map.height();
   this.mapWidth = this.map.width();
+
+  this.markerClass = "marker";
+  this.markerPrototype = $('<img src="marker.svg" class="marker" width="40px">');
+  this.markerLayer = $('#marker-layer');
+  this.markers = [];
 
   this.update = function() {
     self.map.height($(document).height() * 0.9);
@@ -11,8 +17,30 @@ $(function() {
     self.mapWidth = self.map.width();
   };
 
+  this.placeMarker = function(x,y) {
+    var marker = self.markerPrototype.clone(),
+        markerWidth = marker.width(),
+        markerHeight = marker.height();
+
+    x = self.mapBBox.left + x - markerWidth / 2;
+    y = self.mapBBox.top + y - markerHeight;
+
+    marker.offset({ top: y, left: x });
+
+    self.markers.push(marker);
+    self.markerLayer.append(marker);
+  };
+
+  this.clearAllMarkers = function() {
+    self.markers.length = 0;
+    self.markerLayer.empty();
+  };
+
   $(window).resize(this.update);
   this.update();
+  this.placeMarker(100,100);
+  this.placeMarker(200,300);
+  this.placeMarker(300,200);
 
 });
 
