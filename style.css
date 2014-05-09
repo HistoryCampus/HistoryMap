@@ -15,6 +15,13 @@ svg#map {
     margin-left: ;
 }
 
+svg g#map-cities path {
+  fill: none;
+  stroke-width: 2px;
+  stroke: black;
+  stroke-opacity: .3;
+}
+
 header {
     position: fixed;
     top: 1vh;
