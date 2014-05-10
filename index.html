@@ -7438,38 +7438,35 @@
 
     </div>
 
-    <div id="marker-prototype">
-        <a class="fancybox" href="#full-info">
+    <script type="text/html" id="marker-prototype">
+        <a class="fancybox" href="#full-info<%=index%>">
             <img src="img/marker_feminist-fist.svg" class="marker" width="20px" height="32px">
             <div class="popup">
-                <h2>Temporary women workers driving to work at the Western front</h2>
-                <img src="http://upload.wikimedia.org/wikipedia/commons/2/2a/Bundesarchiv_Bild_183-S29737%2C_Westfront%2C_weibliche_Hilfskr%C3%A4fte.jpg" />
+                <h2><%=title%></h2>
+                <img src="<%=content%>" />
             </div>
         </a>
     </div>
 
-    <div id="full-info" class="full-view">
-        <h2>Temporary women workers driving to work at the Western front</h2>
-        <a href="http://upload.wikimedia.org/wikipedia/commons/2/2a/Bundesarchiv_Bild_183-S29737%2C_Westfront%2C_weibliche_Hilfskr%C3%A4fte.jpg"><img src="http://upload.wikimedia.org/wikipedia/commons/2/2a/Bundesarchiv_Bild_183-S29737%2C_Westfront%2C_weibliche_Hilfskr%C3%A4fte.jpg" /></a>
+    <div id="full-info<%=index%>" class="full-view">
+        <h2><%=title%></h2>
+        <a href="<%=content%>"><img src="<%=content%>"></a>
         <ul>
-            <li>origin: <span>[country]</span></li>
-            <li>place: <span>[city]</li>
-            <li>original link: <span><a href="#">[link]</a></span></li>
-            <li>license: <span>[license]</span></li>
+            <li>origin: <span><%=origin%></span></li>
+            <li>place: <span><%=location%></li>
+            <li>license: <span><%=copyright%></span></li>
         </ul>
         <h3>Description</h3>
-        <p>
-            Following the outbreak of World War I in 1914, the German Army opened the Western Front by first invading Luxembourg and Belgium, then gaining military control of important industrial regions in France. Between 1915 and 1917 there were several major offensives along this front. The attacks employed massive artillery bombardments and massed infantry advances. However, a combination of entrenchments, machine gun nests, barbed wire, and artillery repeatedly inflicted severe casualties on the attackers and counterattacking defenders. As a result, no significant advances were made. In an effort to break the deadlock, this front saw the introduction of new military technology, including poison gas, aircraft and tanks.<br />
-            <span>[fictional place]</span>
-        </p>
-    </div>
+        <p><%=description%></p>
+    </script>
 
 
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
     <script src="https://jquery-csv.googlecode.com/files/jquery.csv-0.71.js"></script>
-    <script src="js/app.js"></script>
     <script type="text/javascript" src="js/jquery.fancybox.pack.js?v=2.1.5"></script>
+    <script type="text/javascript" src="js/templating.js"></script>
+    <script src="js/app.js"></script>
 
     <script type="text/javascript">
 	$.ajax({

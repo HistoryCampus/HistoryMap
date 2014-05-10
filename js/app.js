@@ -19,22 +19,18 @@ $(function() {
     {lat: 35.1379, lng: 42.4512}
   ];
 
-  this.markerPrototype = $('#marker-prototype');
-  this.markerSize = {
-    w: this.markerPrototype.find('img').width(),
-    h: this.markerPrototype.find('img').height()
-  }
-  console.log(this.markerSize);
-
+  this.markerTemplate = tmpl($('#marker-prototype').html());
+  this.markerSize = { w:20, h:32 };
   this.markerLayer = $('#marker-layer');
   this.markers = [];
 
   this.update = function() {
     self.clearAllMarkers();
 
-    markerData.forEach(function(obj) {
+    markerData.forEach(function(obj, index) {
       if ($('#minbeds').val() == obj.year) {
-        self.placeMarker({lat: obj.latitude, lng: obj.longitude});
+        obj.index = index;
+        self.placeMarker({lat: obj.latitude, lng: obj.longitude}, obj);
       }
     })
   };
@@ -58,9 +54,8 @@ $(function() {
     marker.offset({ top: y, left: x });
   };
 
-  this.placeMarker = function(coords) {
-    var marker = self.markerPrototype.clone();
-    marker.removeAttr("id");
+  this.placeMarker = function(coords, data) {
+    var marker = $(self.markerTemplate(data));
     marker.attr("data-latitude", coords.lat);
     marker.attr("data-longitude", coords.lng);
 
