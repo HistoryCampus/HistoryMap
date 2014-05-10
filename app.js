@@ -18,8 +18,8 @@ $(function() {
 
   this.markerPrototype = $('#marker-prototype');
   this.markerSize = {
-    w: this.markerPrototype.width(),
-    h: this.markerPrototype.height()
+    w: this.markerPrototype.children('img').width(),
+    h: this.markerPrototype.children('img').height()
   }
 
   this.markerLayer = $('#marker-layer');
