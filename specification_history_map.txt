@@ -1,0 +1,40 @@
+** HistoryMap **
+
+* Data *
+
++ Entry
+perspective (enum: women, soldiers)
+side (enum: Central Powers, Allied Forces)
+year (1914..1918+)
+type (enum: photo, video, letter, postcard, memory, poem/song, poster)
+title (string)
+content (url)
+description (string)
+origin (string)
+location (string)
+fictional_city (enum: yes, )
+original-link (url)
+copyright (string)
+latitude
+longitude
+
+1 Marker info
+perspective (enum: women, soldiers)[e. g. pick gender icon]
+side (enum: Central Powers, Allied Forces)[by colorcoding]
+
+2 Short info (hover)
+title (string)
+item [taken from "content (url)"]
+
+3 Detailed info (hyperlink)
+[
+title (string)
+item [taken from "content (url)"]
+]
+description (string)
+origin (string)
+fictional_city (enum: yes, )
+original-link (url)
+copyright (string)
+
+
