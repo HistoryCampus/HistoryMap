@@ -21,9 +21,10 @@ $(function() {
 
   this.markerPrototype = $('#marker-prototype');
   this.markerSize = {
-    w: this.markerPrototype.children('img').width(),
-    h: this.markerPrototype.children('img').height()
+    w: this.markerPrototype.find('img').width(),
+    h: this.markerPrototype.find('img').height()
   }
+  console.log(this.markerSize);
 
   this.markerLayer = $('#marker-layer');
   this.markers = [];
@@ -50,7 +51,7 @@ $(function() {
     w = self.markerSize.w,
     h = self.markerSize.h;
     dx = self.mapBBox.left - w/2;
-    dy = self.mapBBox.top - h*2;
+    dy = self.mapBBox.top - h*3;    //TODO: MAGIC NUMBER :-O
     x = pos.x + dx;
     y = pos.y + dy;
 
