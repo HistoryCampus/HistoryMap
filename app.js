@@ -4,7 +4,7 @@ if (typeof Number.prototype.toRadians == 'undefined') {
     }
 }
 
-window.markerData = [{perspective: "women", year: "1914", lat:52.5, lon:13.5}, {perspective: "soldiers", year: "1915", lat: 51.5, lon:0}];
+window.markerData = [];
 window.Markers = {};
 
 $(function() {
@@ -33,7 +33,7 @@ $(function() {
 
     markerData.forEach(function(obj) {
       if ($('#minbeds').val() == obj.year) {
-        self.placeMarker(self.latLngToXY(obj.lat, obj.lon));
+        self.placeMarker(self.latLngToXY(obj.latitude, obj.longitude));
       }
     })
  };

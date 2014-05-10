@@ -7448,7 +7448,32 @@
 
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
-    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <script src="https://jquery-csv.googlecode.com/files/jquery.csv-0.71.js"></script>
     <script src="app.js"></script>
+
+    <script type="text/javascript">
+	$.ajax({
+	    type: 'GET',
+	    url: 'database.json',
+	    dataType: 'text',
+	    success: function(data) {
+		process(data);
+	    }
+	});
+
+	function process(data) {
+	  //window.markerData = $.csv.toObjects(data);
+	  data = JSON.parse(data);
+	  data = data.filter(function(obj) {
+	    obj.latitude = parseFloat(obj.latitude.replace(",", "."));
+	    obj.longitude = parseFloat(obj.longitude.replace(",", "."));
+	    return obj.latitude !== NaN && obj.longitude !== NaN;
+	  });
+
+	  window.markerData = data;
+	  window.Markers.update();
+	}
+    </script>
+
   </body>
 </html>
