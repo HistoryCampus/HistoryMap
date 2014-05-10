@@ -61,12 +61,13 @@ header {
   background-color: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.3);
   padding: 10px;
-  width: 350px;
+  width: 150px;
   z-index: 99;
 }
 
 .popup h2 {
   margin-top: 0;
+  font-size: 90%;
 }
 
 .popup img {
