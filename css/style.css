@@ -61,6 +61,19 @@ header {
   background-color: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.3);
   padding: 10px;
+  width: 350px;
+}
+
+.popup h2 {
+  margin-top: 0;
+}
+
+.popup img {
+  float: left; 
+  margin-right: 30px; 
+  margin-bottom: 15px;
+  width: 100%;
+  height: auto;
 }
 
 .marker:hover {
@@ -69,4 +82,45 @@ header {
 
 .marker:hover + .popup {
   display: inline-block;
+}
+
+.full-view {
+  display: none; 
+  width: 960px;
+}
+
+.full-view h2 {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.full-view img {
+  width: 600px;
+  height: auto;
+  float: left;
+  margin-right: 30px;
+}
+
+.full-view ul li {
+  font-size: 150%;
+  display: block;
+  width: 100%;
+  background-color: #ccc;
+  margin-bottom: 10px;
+}
+
+.full-view ul li span {
+  padding-right: 20px;
+  float: right;
+  font-weight: bold;
+}
+
+.full-view p {
+  width: 330px;
+  float: right;
+}
+
+.full-view p span {
+  font-size: 75%;
+  color: gray;
 }
