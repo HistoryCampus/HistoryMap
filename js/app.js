@@ -4,6 +4,9 @@ if (typeof Number.prototype.toRadians == 'undefined') {
     }
 }
 
+window.markerData = [];
+window.Markers = {};
+
 $(function() {
 
   self = this;
@@ -26,20 +29,13 @@ $(function() {
   this.markers = [];
 
   this.update = function() {
-  	
-	markerData = [{perspective: "women", year: "1914", lat:52.5, lon:13.5}, {perspective: "soldiers", year: "1915", lat: 51.5, lon:0}];  	
-  	
-  	self.markerLayer.each(function(index, value){
-  		value.remove()
-  		});
-  		
-  	self.clearAllMarkers();  	
-  	
-  	markerData.forEach(function(obj) {
-  	  if ($('#minbeds').val() == obj.year) {
-  	    self.placeMarker(self.latLngToXY(obj.lat, obj.lon));
-  	  }
-  	})
+    self.clearAllMarkers();
+
+    markerData.forEach(function(obj) {
+      if ($('#minbeds').val() == obj.year) {
+        self.placeMarker(self.latLngToXY(obj.latitude, obj.longitude));
+      }
+    })
  };
 
 	
@@ -114,17 +110,9 @@ $(function() {
     );
   };
 
-  $(window).resize(this.update);
+  //$(window).resize(this.resize);
   this.update();
-
-  //DEBUG
-  //this.placeMarker(this.latLngToXY(35.1379, 42.4512));
- // this.placeMarker(this.latLngToXY(52.5,13.5));
-  //this.placeMarker(this.latLngToXY(51.5, 0));
-  
-  
-    
-
+  window.Markers.update = this.update;
 });
 
 
@@ -150,6 +138,7 @@ $(function() {
 
   function updateYear() {
     console.log($( "#minbeds" ).val());
+    Markers.update();
   }
 });
 
