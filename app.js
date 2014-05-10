@@ -26,8 +26,23 @@ $(function() {
   this.markers = [];
 
   this.update = function() {
-  };
+  	
+	markerData = [{perspective: "women", year: "1914", lat:52.5, lon:13.5}, {perspective: "soldiers", year: "1915", lat: 51.5, lon:0}];  	
+  	
+  	self.markerLayer.each(function(index, value){
+  		value.remove()
+  		});
+  		
+  	self.clearAllMarkers();  	
+  	
+  	markerData.forEach(function(obj) {
+  	  if ($('#minbeds').val() == obj.year) {
+  	    self.placeMarker(self.latLngToXY(obj.lat, obj.lon));
+  	  }
+  	})
+ };
 
+	
   this.placeMarker = function(pos) {
     var marker = self.markerPrototype.clone(),
         w = self.markerSize.w,
@@ -45,6 +60,7 @@ $(function() {
     y = pos.y + dy;
 
     marker.offset({ top: y, left: x });
+    console.log(pos, marker.offset());
   };
 
   this.clearAllMarkers = function() {
@@ -103,8 +119,10 @@ $(function() {
 
   //DEBUG
   //this.placeMarker(this.latLngToXY(35.1379, 42.4512));
-  this.placeMarker(this.latLngToXY(52.5,13.5));
-  this.placeMarker(this.latLngToXY(51.5, 0));
+ // this.placeMarker(this.latLngToXY(52.5,13.5));
+  //this.placeMarker(this.latLngToXY(51.5, 0));
+  
+  
     
 
 });
