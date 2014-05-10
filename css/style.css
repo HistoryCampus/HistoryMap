@@ -88,7 +88,7 @@ header {
 
 .full-view {
   display: none; 
-  width: 960px;
+  width: 700px;
 }
 
 .full-view h2 {
@@ -97,7 +97,7 @@ header {
 }
 
 .full-view img {
-  width: 600px;
+  width: 400px;
   height: auto;
   float: left;
   margin-right: 30px;
@@ -118,7 +118,7 @@ header {
 }
 
 .full-view p {
-  width: 330px;
+  width: 270px;
   float: right;
 }
 
