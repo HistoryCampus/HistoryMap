@@ -7418,25 +7418,27 @@
     </div>
 
     <script type="text/html" id="marker-prototype">
-        <a class="fancybox" href="#full-info<%=index%>">
-	    <img src="img/marker-<%=perspective%>.svg" class="marker" width="20px" height="32px">
-            <div class="popup">
-                <h2><%=title%></h2>
-                <img src="<%=content%>" />
-            </div>
+      <div>
+	<a class="fancybox" href="#full-info<%=index%>">
+	  <img src="img/marker-<%=perspective%>.svg" class="marker" width="20px" height="32px">
+          <div class="popup">
+            <h2><%=title%></h2>
+            <img src="<%=content%>" />
+          </div>
         </a>
-    </div>
 
-    <div id="full-info<%=index%>" class="full-view">
-        <h2><%=title%></h2>
-        <a href="<%=content%>"><img src="<%=content%>"></a>
-        <ul>
-            <li>origin: <span><%=origin%></span></li>
-            <li>place: <span><%=location%></li>
-            <li>license: <span><%=copyright%></span></li>
-        </ul>
-        <h3>Description</h3>
-        <p><%=description%></p>
+	<div id="full-info<%=index%>" class="full-view">
+	  <h2><%=title%></h2>
+	  <a href="<%=content%>"><img src="<%=content%>"></a>
+	  <ul>
+	    <li>origin: <span><%=origin%></span></li>
+	    <li>place: <span><%=location%></li>
+	    <li>license: <span><%=copyright%></span></li>
+	  </ul>
+	  <h3>Description</h3>
+	  <p><%=description%></p>
+	</div>
+      </div>
     </script>
 
 

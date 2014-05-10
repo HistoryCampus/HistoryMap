@@ -56,8 +56,8 @@ $(function() {
 
   this.placeMarker = function(coords, data) {
     var marker = $(self.markerTemplate(data));
-    marker.attr("data-latitude", coords.lat);
-    marker.attr("data-longitude", coords.lng);
+    marker.data("latitude", coords.lat);
+    marker.data("longitude", coords.lng);
 
     self.markers.push(marker);
     self.markerLayer.append(marker);
