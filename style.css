@@ -12,7 +12,6 @@ form {
 svg#map {
     display: inline-block;
     height: 90vh;
-    margin-left: ;
 }
 
 svg g#map-cities path {
@@ -48,4 +47,8 @@ header {
   position: absolute;
   top: 0;
   left: 0;
+}
+
+#marker-prototype {
+  display: none;
 }
