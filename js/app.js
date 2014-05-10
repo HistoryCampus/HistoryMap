@@ -33,30 +33,39 @@ $(function() {
 
     markerData.forEach(function(obj) {
       if ($('#minbeds').val() == obj.year) {
-        self.placeMarker(self.latLngToXY(obj.latitude, obj.longitude));
+        self.placeMarker({lat: obj.latitude, lng: obj.longitude});
       }
     })
- };
+  };
 
-	
-  this.placeMarker = function(pos) {
-    var marker = self.markerPrototype.clone(),
-        w = self.markerSize.w,
-        h = self.markerSize.h;
-    marker.removeAttr("id");
+  this.onResize = function() {
+    self.mapBBox = map.getBoundingClientRect();
+    self.markers.forEach(self.setMarkerPosition);
+  };
 
-    self.markers.push(marker);
-    self.markerLayer.append(marker);
+  this.setMarkerPosition = function(marker) {
+    var dx, dy, w, h, x, y, pos;
 
-    //x = self.mapBBox.left + pos.x - w / 2;
-    //y = self.mapBBox.top + pos.y - h;
+    pos = self.latLngToXY(marker.data("latitude"), marker.data("longitude"));
+    w = self.markerSize.w,
+    h = self.markerSize.h;
     dx = self.mapBBox.left - w/2;
     dy = self.mapBBox.top - h*2;
     x = pos.x + dx;
     y = pos.y + dy;
 
     marker.offset({ top: y, left: x });
-    console.log(pos, marker.offset());
+  };
+
+  this.placeMarker = function(coords) {
+    var marker = self.markerPrototype.clone();
+    marker.removeAttr("id");
+    marker.attr("data-latitude", coords.lat);
+    marker.attr("data-longitude", coords.lng);
+
+    self.markers.push(marker);
+    self.markerLayer.append(marker);
+    self.setMarkerPosition(marker);
   };
 
   this.clearAllMarkers = function() {
@@ -110,7 +119,7 @@ $(function() {
     );
   };
 
-  //$(window).resize(this.resize);
+  $(window).resize(this.onResize);
   this.update();
   window.Markers.update = this.update;
 });
